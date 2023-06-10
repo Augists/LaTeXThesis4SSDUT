@@ -1,0 +1,30 @@
+\chapter{模型实现}
+\label{chap04}
+\defaultfont
+\sloppy{}
+
+\textbf{算法伪代码样例} \ref{YOLO}
+
+% {\linespread{2.0}\selectfont
+% \centerline{表4.1\quad\quad 基于 YOLO 进行视觉数据检测和裁剪预处理}
+% }
+\begin{algorithm}
+% \caption{Video Data Preprocess by YOLO Detection and Cropping}
+\caption{基于 YOLO 进行视觉数据检测和裁剪预处理}
+\label{YOLO}
+\begin{algorithmic}[1] % show line number
+% \REQUIRE{$\mathcal{V}$ is data samples composed of video frames; $\mathcal{F}$ is the YOLO model; $acc$ is the confidence threshold for object recognition; $\mathcal{C} $ is the image cropping tool}
+\REQUIRE{$\mathcal{V}$ 是视觉帧数据样例; $\mathcal{F}$ 是 YOLO 目标检测模型; $acc$ 物体的识别可信度; $\mathcal{C} $ 图片裁剪工具}
+% \ENSURE{the detected person $\mathcal{P}$}
+\ENSURE{被检测者 $\mathcal{P}$}
+
+\FOR{each $\widetilde{v} \in \mathcal{V}$}
+    \STATE $Z_i \gets \mathcal{F}(\widetilde{v})$
+    \IF{$Z_i$ is not person and $Z_i^{acc} < acc$}
+        \STATE discard
+    \ENDIF
+    \STATE expand the identified target $Z_i$ into a square $Z_i^{square}$
+    \STATE $\mathcal{P} \gets \mathcal{C}(Z_i^{square})$
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}

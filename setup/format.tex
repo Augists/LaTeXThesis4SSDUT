@@ -1,0 +1,409 @@
+% !TEX TS-program = XeLaTeX
+% !TEX encoding = UTF-8 Unicode
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+%	大连理工大学本科生毕业设计（论文）LaTeX 模版 —— 格式文件 format.tex
+%	版本：1.0
+%	最后更新：2022.5.12
+%  	修改者：赵小棠 (E-amil: xiaotang_zhao@outllook.com)
+%	编译环境：win10 TeXstudio textlive2020 编译器XeLaTeX
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 页面设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%\geometry{paperwidth=21.0cm,paperheight=29.7cm,inner=2.5cm,outer=2.5cm,bottom=2.5cm,top=3.5cm,footskip=0cm,headsep=0.9cm,headheight=0.5cm}
+% A4 纸张
+\setlength{\paperwidth}{21.0cm}
+\setlength{\paperheight}{29.7cm}
+
+% 设置正文尺寸大小
+\setlength{\textwidth}{16.1cm}
+\setlength{\textheight}{22.2cm}
+
+% 设置正文区在正中间
+\newlength \mymargin
+\setlength{\mymargin}{(\paperwidth-\textwidth)/2}
+\setlength{\oddsidemargin}{(\mymargin)-1in}
+\setlength{\evensidemargin}{(\mymargin)-1in}
+
+% 设置正文区偏移量，奇数页向右偏，偶数页向左偏
+%\newlength \myshift
+%\setlength{\myshift}{0.35cm}	% 双面打印的奇偶页偏移值，可根据需要修改，建议小于 0.5cm
+%\addtolength{\oddsidemargin}{\myshift}
+%\addtolength{\evensidemargin}{-\myshift}
+
+% 页眉页脚相关距离设置
+\setlength{\topmargin}{-0.05cm}
+\setlength{\headheight}{0.50cm}
+\setlength{\headsep}{0.90cm}
+\setlength{\footskip}{1.47cm}
+% 公式的精调
+\allowdisplaybreaks[4]  % 可以让公式在排不下的时候分页排，这可避免页面有大段空白。
+
+% 下面这组命令使浮动对象的缺省值稍微宽松一点，从而防止幅度
+% 对象占据过多的文本页面，也可以防止在很大空白的浮动页上放置很小的图形。
+\renewcommand{\topfraction}{0.9999999}
+\renewcommand{\textfraction}{0.0000001}
+\renewcommand{\floatpagefraction}{0.9999}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 字体字号定义
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 字号
+\newcommand{\xiaoer}{\fontsize{18pt}{23.46pt}\selectfont} %小二，按照word一倍行距为基线行距
+\newcommand{\erhao}{\fontsize{22pt}{28.6pt}\selectfont} %二号，按照word一倍行距为基线行距
+\newcommand{\sanhao}{\fontsize{16pt}{20.8pt}\selectfont} %三号，按照word一倍行距为基线行距
+\newcommand{\xiaosi}{\fontsize{12pt}{15.6pt}\selectfont} %小四，按照word一倍行距为基线行距
+\newcommand{\wuhao}{\fontsize{10.5pt}{13.65pt}\selectfont}%五号，原理同上，word的基线行距为字号的1.3倍
+\newcommand{\xiaosan}{\fontsize{15pt}{19.5pt}\selectfont}     % 小三
+\newcommand{\sihao}{\fontsize{14pt}{18.2pt}\selectfont}     % 四号
+\newcommand{\yihao}{\fontsize{26pt}{33.8pt}\selectfont}	    % 一号
+\newcommand{\xiaoyi}{\fontsize{24pt}{31.2pt}\selectfont}      % 小一
+\newcommand{\xiaowu}{\fontsize{9pt}{11.7pt}\selectfont}	    % 小五
+\newcommand{\song}{\CJKfamily{song}}
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\kai}{\CJKfamily{kai}}
+% \newcommand{\xhei}{\CJKfamily{xhei}}
+
+% defaultfont 默认字体命令
+\def\defaultfont{\renewcommand{\baselinestretch}{1.25}\song
+  \fontsize{12pt}{15.6pt}\selectfont}
+
+% 设置目录字体和行间距
+\def\defaultmenufont{\renewcommand{\baselinestretch}{1.25}\song
+  \fontsize{12pt}{15.6pt}\selectfont}
+
+% 固定距离内容填入及下划线
+\makeatletter
+\newcommand\fixeddistanceleft[2][1cm]{{\hb@xt@ #1{#2\hss}}}
+\newcommand\fixeddistancecenter[2][1cm]{{\hb@xt@ #1{\hss#2\hss}}}
+\newcommand\fixeddistanceright[2][1cm]{{\hb@xt@ #1{\hss#2}}}
+\newcommand\fixedunderlineleft[2][1cm]{\underline{\hb@xt@ #1{#2\hss}}}
+\newcommand\fixedunderlinecenter[2][1cm]{\underline{\hb@xt@ #1{\hss#2\hss}}}
+\newcommand\fixedunderlineright[2][1cm]{\underline{\hb@xt@ #1{\hss#2}}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 标题环境相关
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 定义、定理等环境
+\theoremstyle{plain}
+\theoremheaderfont{\hei\bf}
+\theorembodyfont{\song\rmfamily}
+\newtheorem{definition}{\hei 定义}[chapter]
+\newtheorem{example}{\hei 例}[chapter]
+% \newtheorem{algorithm}{\hei 算法}[chapter]
+\newtheorem{theorem}{\hei 定理}[chapter]
+\newtheorem{axiom}{\hei 公理}[chapter]
+\newtheorem{proposition}[theorem]{\hei 命题}
+\newtheorem{property}{\hei 性质}
+\newtheorem{lemma}[theorem]{\hei 引理}
+\newtheorem{corollary}{\hei 推论}[chapter]
+\newtheorem{remark}{\hei 注解}[chapter]
+\newenvironment{proof}{\hei{证明}　}{\hfill $\square$ \vskip 4mm}
+
+% 目录标题
+\renewcommand\contentsname{\hfill 目　　录 \hfill\vspace{-0.7cm}}
+\renewcommand\listfigurename{\hfill 插~图~目~录 \hfill}
+\renewcommand\listtablename{\hfill 表~格~目~录 \hfill}
+\renewcommand{\bibname}{\hfill 参~考~文~献 \hfill}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 段落章节相关
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+% 设置章、节、小节、小小节的间距
+%\titlespacing的最后一个参数是垂直间距，待修改
+\titleformat{\chapter}[hang]{\normalfont\xiaosan\hei\sf}{\xiaosan\hei\thechapter}{1em}{}{}
+\titlespacing{\chapter}{0pt}{-3ex  plus .1ex minus .2ex}{18pt}
+\titleformat{\section}[hang]{\sihao\hei\sf}{\sihao\hei\thesection}{1em}{}{}
+\titlespacing{\section}{0pt}{0.5ex}{0.95ex}
+\titleformat{\subsection}[hang]{\xiaosi\hei\sf}{\xiaosi\hei\thesubsection}{1em}{}{}
+\titlespacing{\subsection}{0pt}{0.5ex}{0.95ex}
+
+
+% 缩小目录中各级标题之间的缩进
+\contentsmargin{0pt}
+\dottedcontents{chapter}[0.6cm]{}{1.55em}{3pt}
+\dottedcontents{section}[1.8cm]{}{2.3em}{3pt}
+\dottedcontents{subsection}[3.0cm]{}{3.1em}{3pt}
+
+% 段落之间的竖直距离
+\setlength{\parskip}{0ex}
+% 段落缩进
+\setlength{\parindent}{2em}
+% 定义行距
+\renewcommand{\baselinestretch}{1.25}
+% 参考文献条目间行间距
+\setlength{\bibsep}{2pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 页眉页脚设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand{\makeheadrule}{%
+  \makebox[0pt][l]{\rule[.7\baselineskip]{\headwidth}{0.5pt}}%
+  \vskip-.8\baselineskip}
+
+\makeatletter
+\renewcommand{\headrule}{%
+  {\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+    \makeheadrule}}
+
+\pagestyle{fancyplain}
+
+\fancyhf{}
+\fancyhead[CO]{\song\wuhao\@ctitle}
+\fancyhead[C]{\song\wuhao\@ctitle}
+% \fancyhead[CE]{\song\wuhao\@ctitle}
+\fancyfoot[C,C]{\xiaowu$-$~\thepage~$-$}
+\fancypagestyle{headFancy}{
+	\fancyhf{}
+	\fancyhead[CO]{\song\wuhao\@ctitle}
+	\fancyhead[C]{\song\wuhao\@ctitle}
+ 	% \fancyhead[CE]{\song\wuhao\@ctitle}
+}
+% Clear Header Style on the Last Empty Odd pages
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
+  \hbox{}%
+  \thispagestyle{empty}%              % Empty header styles
+  \newpage%
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 列表环境设置
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\setlist[enumerate]{（1）,itemsep=-5pt,topsep=0mm,labelindent=\parindent,leftmargin=*}
+\newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)
+    circle (.5em) node {\makebox[1em][c]{\small #1}};}}
+\robustify{\circled}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 国际单位，以点连接。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\sisetup{inter-unit-product = { }\cdot{ }} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 参考文献的处理
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% \addtolength{\bibsep}{-0.5em}              % 缩小参考文献间的垂直间距
+\setlength{\bibhang}{2em}
+% \bibliographystyle{rusnat}
+\bibliographystyle{GBT7714}
+\bibpunct{[}{]}{,}{s}{}{}
+
+
+
+% \let\orig@Itemize =\itemize
+% \let\orig@Enumerate =\enumerate
+% \let\orig@Description =\description
+
+% \def\Myspacing{\itemsep=1ex \topsep=-4ex \partopsep=-2ex \parskip=-1ex \parsep=2ex}
+% \def\newitemsep{
+% \renewenvironment{itemize}{\orig@Itemize\Myspacing}{\endlist}
+% \renewenvironment{enumerate}{\orig@Enumerate\Myspacing}{\endlist}
+% \renewenvironment{description}{\orig@Description\Myspacing}{\endlist}
+% }
+%   \def\olditemsep{
+%   \renewenvironment{itemize}{\orig@Itemize}{\endlist}
+%   \renewenvironment{enumerate}{\orig@Enumerate}{\endlist}
+%   \renewenvironment{description}{\orig@Description}{\endlist}
+% }
+%   \renewcommand{\labelenumi}{(\arabic{enumi})}
+%   \newitemsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%   其他设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%   增加 \ucite 命令使显示的引用为上标形式
+%   \newcommand{\ucite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%   图形表格
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\DeclareCaptionFont{song}{\tempus\wuhao}
+\captionsetup{font=song,labelsep=quad}
+
+
+\newcommand{\tablepage}[2]{\begin{minipage}{#1}\vspace{0.5ex} #2 \vspace{0.5ex}\end{minipage}}
+\newcommand{\returnpage}[2]{\begin{minipage}{#1}\vspace{0.5ex} #2 \vspace{-1.5ex}\end{minipage}}
+\renewcommand\arraystretch{1.625}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 定义题头格言的格式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newsavebox{\AphorismAuthor}
+\newenvironment{Aphorism}[1]
+{\vspace{0.5cm}\begin{sloppypar} \slshape
+    \sbox{\AphorismAuthor}{#1}
+    \begin{quote}\small\itshape }
+    {\\ \hspace*{\fill}------\hspace{0.2cm} \usebox{\AphorismAuthor}
+    \end{quote}
+  \end{sloppypar}\vspace{0.5cm}}
+
+% 自定义一个空命令，用于注释掉文本中不需要的部分。
+\newcommand{\comment}[1]{}
+
+% This is the flag for longer version
+\newcommand{\longer}[2]{#1}
+
+\newcommand{\ds}{\displaystyle}
+
+% define graph scale
+\def\gs{1.0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 封面摘要
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\def\cdegree#1{\def\@cdegree{#1}}\def\@cdegree{}
+\def\ctitle#1{\def\@ctitle{#1}}\def\@ctitle{}
+\def\caffil#1{\def\@caffil{#1}}\def\@caffil{}
+\def\csubject#1{\def\@csubject{#1}}\def\@csubject{}
+\def\cauthor#1{\def\@cauthor{#1}}\def\@cauthor{}
+\def\cauthorno#1{\def\@cauthorno{#1}}\def\@cauthorno{}
+\def\csupervisor#1{\def\@csupervisor{#1}}\def\@csupervisor{}
+\def\cdate#1{\def\@cdate{#1}}\def\@cdate{}
+\long\def\cabstract#1{\long\def\@cabstract{#1}}\long\def\@cabstract{}
+\def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
+\def\etitle#1{\def\@etitle{#1}}\def\@etitle{}
+\long\def\eabstract#1{\long\def\@eabstract{#1}}\long\def\@eabstract{}
+\def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
+\def\department#1{\def\@department{#1}}\def\@department{} 
+\def\teacher#1{\def\@teacher{#1}}\def\@teacher{}
+% 封面
+\def\makecover{
+  \begin{titlepage}
+    \newpage
+    \thispagestyle{empty}
+    　%在这里有一个日语空格
+    \begin{center}
+      \parbox[t][2.80cm][c]{\textwidth}
+      {
+        \vspace{0.55cm}
+        \linespread{1.25}
+        \begin{center}
+          {\xiaoyi\song\textbf{\@cdegree}\\}
+          \vspace{35pt}
+          {\erhao\CJKfamily{hwxhei}\textbf{\@ctitle}\\}
+          {\sanhao\textbf{\@etitle}\\}
+        \end{center}
+      }
+      \parbox[b][15cm][c]{\textwidth}
+      {
+        \vspace{5cm}
+        \begin{center}
+          {
+            \xiaosan\song
+            \renewcommand\arraystretch{1.2}
+            \begin{tabular}
+            {p{1.4cm}p{3.02cm}   @{\extracolsep{0.7em}}lc}
+            
+              ~ & 学 \hfill 院 \hfill（系）：& \fixedunderlineleft[6.1cm] {\@department} & \\
+              ~ & 专 \hfill 业：& \fixedunderlineleft[6.1cm]{\@csubject} & \\
+              ~ & 学 \hfill 生 \hfill 姓 \hfill 名：& \fixedunderlineleft[6.1cm]{\@cauthor} & \\ 
+              ~ & 学 \hfill 号：& \fixedunderlineleft[6.1cm]{\@cauthorno} & \\
+              ~ & 指 \hfill 导 \hfill 教 \hfill 师：& \fixedunderlineleft[6.1cm]{\@csupervisor} & \\
+              ~ & 评 \hfill 阅 \hfill 教 \hfill 师：& \fixedunderlineleft[6.1cm]{\@teacher} & \\
+              ~ & 完 \hfill 成 \hfill 日 \hfill 期：& \fixedunderlineleft[6.1cm]{\@cdate} & \\
+            \end{tabular}
+          }
+        \end{center}
+      }
+        \parbox[b][3cm][c]{\textwidth}
+      {
+      \centering
+      \vspace{2.7cm}
+      {
+      	\linespread{1.25}
+     		{\CJKfamily{hwxkai}\xiaoer 大连理工大学\\}
+     		\vspace{0.3cm}
+     		{\xiaosi Dalian University of Technology}
+      }
+      }
+    \end{center}
+%    \cleardoublepage
+  \end{titlepage}
+}
+
+
+
+\def\makeabstract{
+  \chapter*{\hfill 摘　　要 \hfill}
+  \addcontentsline{toc}{chapter}{摘　　要}
+  \setcounter{page}{1}
+  \defaultfont
+  \linespread{1.25}
+  \sloppy{}
+  
+  \@cabstract
+  \vspace{0.53cm}
+
+  \noindent {\hei\textbf{{关键词：{\@ckeywords}}}}
+  \clearpage
+  
+  \defaultfont
+  \linespread{1.25}
+  \chapter*{}
+  \addcontentsline{toc}{chapter}{Abstract}
+  \vspace{-1.40cm}
+  \begin{center}
+    {\xiaosan\textbf{\@etitle}}
+  \end{center}
+  \vspace{-0.20cm}
+  \begin{center}
+    {
+      \hei\xiaosan{Abstract}\\
+    }
+  \end{center}
+  \vspace{0.12cm}
+  \sloppy{}
+  
+  \@eabstract
+  
+  \vspace{0.55cm}
+  
+  \noindent {\hei\textbf{Key Words:}}~~{\hei\textbf{\@ekeywords}}
+  \clearpage
+}
+
+\makeatletter
+\def\hlinewd#1{%
+  \noalign{\ifnum0=`}\fi\hrule \@height #1 \futurelet
+  \reserved@a\@xhline}
+\makeatother
+
+% 定义索引生成
+\def\generateindex
+{
+  \addcontentsline{toc}{chapter}{\indexname}
+  \printindex
+  \cleardoublepage
+}
+%参考文献列表样式修改
+\makeatletter
+\renewcommand\@biblabel[1]{\quad[#1]}
+% \renewcommand\@biblabel[1]{\quad\quad[#1]}
+\makeatother
+
+\raggedbottom
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% \renewcommand{\algorithmicrequire}{\textbf{输入：}}
+% \renewcommand{\algorithmicensure}{\textbf{输出：}}

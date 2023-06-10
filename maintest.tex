@@ -1,0 +1,60 @@
+\documentclass[a4paper,12pt,openany,oneside]{book}
+
+% 字体配置文件
+\input{setup/fonts}
+
+% 宏包配置文件
+\input{setup/packages}
+
+% 格式文件
+\input{setup/format}
+
+\begin{document}
+	
+% 设置PDF元数据
+\hypersetup{
+	% 文件标题
+	pdftitle={大连理工大学本科生毕业设计（论文）题目},
+	% 文件作者
+	pdfauthor={论文作者},
+	% 文件主题
+	pdfsubject = {毕业设计(论文)},
+	% 文件关键字
+	pdfkeywords = {写作规范；排版格式；毕业设计（论文）},
+	% 文件制作者和创建者
+	pdfproducer = {大连理工大学},
+	pdfcreator = {LaTeX}
+}
+
+\input{preface/cover}
+\include{body/archive/original}
+\include{body/archive/grant}
+\frontmatter
+\pagenumbering{Roman}
+\makeabstract
+\defaultmenufont
+\tableofcontents
+
+\mainmatter
+
+% \include{body/chap00}
+\include{body/chap01}
+\include{body/chap02}
+\include{body/chap03}
+\include{body/chap04}
+\include{body/chap05}
+% \include{body/chap06}
+\cleardoublepage
+
+\include{body/conclusion}
+\include{body/reference}
+\include{body/archive/appendix1}
+\include{body/archive/modify}
+\include{body/archive/thank}
+
+% 使用时将此处删掉即可
+\include{body/archive/author}
+
+\backmatter
+
+\end{document}
