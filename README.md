@@ -6,6 +6,7 @@
 
 * 下载到本地，使用你自己的编辑器编写并渲染
 * 使用 Overleaf 打开模板并克隆到自己的项目列表中（推荐）
+  * [克隆模板](https://www.overleaf.com/read/nbfqqztpdwbd)，点击直接打开 Overleaf
 
 ## 模板文件介绍
 
