@@ -7,6 +7,11 @@
 * 下载到本地，使用你自己的编辑器编写并渲染
 * 使用 Overleaf 打开模板并克隆到自己的项目列表中（推荐）
   * [克隆模板](https://www.overleaf.com/read/nbfqqztpdwbd)，点击直接打开 Overleaf
+ 
+> [!IMPORTANT]
+> 添加了毕设答辩的[模板pptx](https://github.com/Augists/LaTeXThesis4SSDUT/blob/main/%E5%A4%A7%E5%B7%A5%E6%A8%A1%E6%9D%BF%20by%20Augists.pptx)
+>
+> ©️Augists
 
 ## 模板文件介绍
 
