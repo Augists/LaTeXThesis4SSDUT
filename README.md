@@ -107,6 +107,34 @@ E = mc^2
 \end{figure}
 ```
 
+图片绘制可以参考[tikz](https://tikz.dev/)，样例：
+
+`example.tex`
+```LaTeX
+\begin{tikzpicture}
+  \tikzstyle{base_txt} = [text centered]
+  \tikzstyle{base_rec} = [draw, rectangle, minimum height=1.5em, minimum width=6em, node distance=3em, font={\sffamily}]
+  % round-cornered rectangle
+  \tikzstyle{base_rrec} = [draw, rectangle, rounded corners]
+  \tikzstyle{base_circle} = [draw, circle]
+
+  % same as subfigure
+  \begin{scope}
+    \node[base_rec, name=recA] {A};
+    \node[base_rrec, name=rrecB, anchor=south, yshift=0.8em, xshift=4em] at (recA.east) {B};
+    \draw[black, thin, -] (recA.south east) -- node[base_txt, anchor=east, xshift=-0.1em, yshift=-0.1em] {\scriptsize line\_a\_to\_b} (rrecB.west);
+  \end{scope}
+
+  \begin{scope}[yshift=-3cm]
+    \node[base_circle, anchor=east, xshift=-6em,
+            label={[shift={(0em, 1em)}, font=\scriptsize \sffamily, anchor=north]north:test one},
+            label={[shift={(0em, 0em)}, font=\scriptsize \sffamily, anchor=north]north:text two}
+  \end{scope}
+\end{tikzpicture}
+```
+
+`tikz` 好处是会自动根据页面宽度动态的缩放来铺满页面，并且提供了一些库来辅助编写 `LaTeX` 代码。但**不适合有大量节点且关系复杂的场景**
+
 ### 伪代码
 
 ```LaTeX
