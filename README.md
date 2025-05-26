@@ -135,6 +135,8 @@ E = mc^2
 
 `tikz` 好处是会自动根据页面宽度动态的缩放来铺满页面，并且提供了一些库来辅助编写 `LaTeX` 代码。但**不适合有大量节点且关系复杂的场景**
 
+> [awesome-latex-drawing](https://github.com/xinychen/awesome-latex-drawing) 向好看的论文图学习，提供了大量的 LaTex 画图样例素材
+
 ### 伪代码
 
 ```LaTeX
